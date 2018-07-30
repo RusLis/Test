@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 use App\Product;
+use App\Category;
 
 use Illuminate\Http\Request;
 use App\Http\Resources\Product as ProductResource;
@@ -27,6 +28,7 @@ class ProductController extends Controller
      */
     public function create()
     {
+        $categories = Category::all()->toArray();
         return view('products.create');
     }
 
@@ -71,6 +73,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        $categories = Category::all()->toArray();
         $product = Product::find($id);
         return view('products.edit',compact('product','id'));
     }

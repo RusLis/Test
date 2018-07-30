@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Laravel 5.5 CRUD Tutorial With Example From Scratch </title>
+    <title>Product CRUD </title>
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
   <body>
@@ -49,7 +49,11 @@
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="price">Category:</label>
-              <input type="text" class="form-control" name="category">
+              <select class="form-control input-sm" name="category">
+                  @foreach($categories as $category)
+                 <option value="{{$category->id}}">{{$category->name}}</option>
+                 @endforeach 
+              </select>
             </div>
           </div>
           <div class="row">
